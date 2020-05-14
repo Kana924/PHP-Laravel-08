@@ -19,7 +19,7 @@ class ProfileController extends Controller
       // Varidationを行う
       $this->validate($request, Profile::$rules);
 
-      $news = new Profile;
+      $profile = new Profile;
       $form = $request->all();
 
       // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
@@ -38,8 +38,6 @@ class ProfileController extends Controller
       // データベースに保存する
       $profile->fill($form);
       $profile->save();
-
-      return redirect('admin/news/create');
  
         return redirect('admin/profile/create');
     }
